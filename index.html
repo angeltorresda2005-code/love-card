@@ -5,58 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tarjeta de Amor</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
     body {
       margin: 0;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #fce4ec; /* soft pink background */
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffb6c1;
+      background-image: radial-gradient(#ff69b4 15%, transparent 16%), radial-gradient(#ff69b4 15%, transparent 16%);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+      font-family: 'VT323', monospace;
     }
     #card {
       position: relative;
-      width: 200px;
-      height: 300px;
+      width: 240px;
+      height: 320px;
       background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      border: 4px solid #333;
+      border-radius: 8px;
+      box-shadow: 8px 8px 0px rgba(0,0,0,0.2);
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      flex-direction: column;
     }
-    #heart {
-      width: 64px;
+    .sprite {
+      width: 100px;
+      height: 100px;
       image-rendering: pixelated;
       cursor: pointer;
       transition: transform 0.2s ease;
+    }
+    #heart {
+      display: block;
     }
     #heart:hover {
       transform: scale(1.1);
     }
     #flowers {
-      width: 64px;
-      image-rendering: pixelated;
+      display: none;
       opacity: 0;
       transition: opacity 0.5s ease;
     }
     #message {
       position: absolute;
-      bottom: 20px;
+      bottom: 30px;
       width: 100%;
       text-align: center;
-      font-size: 1.2rem;
+      font-size: 1.8rem;
       color: #d32f2f;
       opacity: 0;
       transition: opacity 0.5s ease;
+      text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
     }
   </style>
 </head>
 <body>
   <div id="card">
-    <img id="heart" src="heart_pixel_1790050720610.jpg" alt="Corazón" />
-    <img id="flowers" src="flower_yellow_pixel_1790050750000_1790050731478.jpg" alt="Ramo de flores" />
+    <img id="heart" class="sprite" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 11'><path fill='%23e91e63' d='M1,3v3h1v1h1v1h1v1h1v1h1v-1h1v-1h1v-1h1v-1h1v-3h-1v-1h-1v-1h-2v1h-1v1h-1v-1h-1v-1h-2v1h-1v1z'/></svg>" alt="Corazón" />
+    <img id="flowers" class="sprite" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='%23228b22' d='M7,16v-8h2v8z'/><path fill='%23ffd700' d='M4,4h8v4h-8z'/><path fill='%23ff8c00' d='M6,5h4v2h-4z'/></svg>" alt="Ramo de flores" />
     <div id="message">Te amo mucho cuchumin</div>
   </div>
   <script>
@@ -65,8 +76,11 @@
     const message = document.getElementById('message');
     heart.addEventListener('click', () => {
       heart.style.display = 'none';
-      flowers.style.opacity = '1';
-      message.style.opacity = '1';
+      flowers.style.display = 'block';
+      setTimeout(() => {
+        flowers.style.opacity = '1';
+        message.style.opacity = '1';
+      }, 50);
     });
   </script>
 </body>
