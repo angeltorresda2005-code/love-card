@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarjeta de Amor</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fce4ec; /* soft pink background */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    #card {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    #heart {
+      width: 120px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    #heart:hover {
+      transform: scale(1.1);
+    }
+    #flowers {
+      position: absolute;
+      width: 200px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    #message {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 1.2rem;
+      color: #d32f2f;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+  <div id="card">
+    <img id="heart" src="heart_icon_1790049298442.jpg" alt="Corazón" />
+    <img id="flowers" src="flower_bouquet_1790049325583.jpg" alt="Ramo de flores" />
+    <div id="message">Te amo mucho cuchumin</div>
+  </div>
+  <script>
+    const heart = document.getElementById('heart');
+    const flowers = document.getElementById('flowers');
+    const message = document.getElementById('message');
+    heart.addEventListener('click', () => {
+      heart.style.display = 'none';
+      flowers.style.opacity = '1';
+      message.style.opacity = '1';
+    });
+  </script>
+</body>
+</html>
